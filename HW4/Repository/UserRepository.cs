@@ -1,4 +1,5 @@
-﻿using HW4.Entities;
+﻿using HW4.DB;
+using HW4.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace HW4.Repository
     public class UserRepository : IUserRepository
     {
         public List<User> users;
+        UserDataBase db;
         public UserRepository()
         {
-            users= new List<User>();
-
+            db = new UserDataBase();
+            users = db.LoadUsersDB();
+            
         }
 
         public void Create(string name,string phone,DateTime birthdate)
@@ -25,16 +28,19 @@ namespace HW4.Repository
             user.Birthdate = birthdate;
             user.CreateDate=DateTime.Now;
             users.Add(user);
+            db.Save(users);
         }
 
         public void Delete(string name)
         {
             var user = SelectUserByName(name);
             users.Remove(user);
+            db.Save(users);
         }
 
         public List<User> GetAll()
         {
+            users=db.LoadUsersDB();
             return users;
         }
 
@@ -46,13 +52,18 @@ namespace HW4.Repository
             user.Birthdate=birthDate;
             user.CreateDate= DateTime.Now;
             users.Add(user);
-
+            db.Save(users);
         }
 
 
         public User SelectUserByName(string name)
         {
-            User user = (User)users.Select(x => x.Name == name);
+            User user=new User();
+            foreach (var item in users)
+            {
+                if (item.Name == name)
+                    user = item;
+            }
             return user;
         }
     }
