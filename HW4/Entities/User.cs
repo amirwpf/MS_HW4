@@ -9,13 +9,23 @@ namespace HW4.Entities
 {
     public class User
     {
-        [Name("Phone")]
-        private string phone;
-        [Name("Birth Date")]
-        private DateTime birthDate;
+        public User()
+        {
+            this.Id = Guid.NewGuid();
+        }
+        [Name("Id")]
+        public Guid Id { get; }
 
         [Name("Name")]
         public string Name { get; set; }
+
+        [Name("Phone")]
+        private string phone;
+
+        [Name("Birth Date")]
+        private DateTime birthDate;
+
+        
         public string Phone
         {
             get { return phone; }
@@ -34,5 +44,8 @@ namespace HW4.Entities
                     birthDate = value;
             }
         }
+
+        [Name("Create Date")]
+        public DateTime CreateDate { get; set; }
     }
 }
