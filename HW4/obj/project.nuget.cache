@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "koqEw+FILXeH/yRrwIw9+FMuG23UmEbwzfbL0Iqf9Ox8Fo+q1oOykifR3TCgQ+TbaXWEG6xvpraIy1Y7p9jPhA==",
+  "dgSpecHash": "EUXTFJvuoSJzY6ilb1H9YByUccXc5WejR5aW5TCnpPOs/BGvipb0Npkdkl1VcsT6kGnhd3/EclipUqAb2hoTPg==",
   "success": true,
   "projectFilePath": "F:\\software\\exe\\visual studio 2022\\maktabSh\\HW\\HW4\\HW4_new\\MS_HW4\\HW4\\HW4.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\amir\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
