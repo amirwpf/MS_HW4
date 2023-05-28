@@ -27,8 +27,12 @@ namespace HW4.Repository
             user.Phone = phone;
             user.Birthdate = birthdate;
             user.CreateDate=DateTime.Now;
-            users.Add(user);
-            db.Save(users);
+            if(user.Phone!="-1" && user.Birthdate.Year!=-1)
+            {
+                users.Add(user);
+                db.Save(users);
+            }
+            
         }
 
         public void Delete(string name)
@@ -51,8 +55,11 @@ namespace HW4.Repository
             user.Phone=phone;
             user.Birthdate=birthDate;
             user.CreateDate= DateTime.Now;
-            users.Add(user);
-            db.Save(users);
+            if (user.Phone != "-1" && user.Birthdate.Year != -1)
+            {
+                users.Add(user);
+                db.Save(users);
+            }
         }
 
 

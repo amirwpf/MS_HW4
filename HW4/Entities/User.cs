@@ -36,7 +36,7 @@ namespace HW4.Entities
                     phone = value;
                 else
                 {
-                    phone = "11111111111";
+                    phone = "-1";
                     throw new InvalidPhone("input phone is inavlid !");
                 }
                     
@@ -51,7 +51,7 @@ namespace HW4.Entities
                     birthDate = value;
                 else
                 {
-                    birthDate = new DateTime(2000, 1, 1);
+                    birthDate = new DateTime(-1, 1, 1);
                     throw new InvalidBirthDateException("input birth date is invalid !");
                 }
             }
