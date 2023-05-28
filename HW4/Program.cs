@@ -10,6 +10,7 @@ UserRepository userRepository = new UserRepository();
 
 while(true)
 {
+    Console.Clear();
     Console.WriteLine("###################");
     Console.WriteLine("Pls choose your function");
     Console.WriteLine("1- create");
@@ -30,8 +31,9 @@ while(true)
             var phone = Console.ReadLine();
             Console.WriteLine("pls enter birth year");
             var year = int.Parse(Console.ReadLine());
-
+            Console.WriteLine("###################");
             userRepository.Create(namee, phone, new DateTime(year, 01, 01));
+            Console.ReadKey();
 
             break;
 
@@ -40,12 +42,27 @@ while(true)
             Console.WriteLine("###################");
             foreach (var item in userRepository.GetAll())
             {
-                Console.WriteLine(item.Phone);
+                Console.WriteLine(item.ToString());
             }
+            Console.WriteLine("###################");
+            Console.ReadKey();
             break;
 
         case 3:
-
+            Console.WriteLine("###################");
+            foreach (var item in userRepository.GetAll())
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("###################");
+            Console.WriteLine("pls choose the item to update by name");
+            var UpdateName= Console.ReadLine();
+            Console.WriteLine("pls enter phone number");
+            var UpdatePhone= Console.ReadLine();
+            Console.WriteLine("pls enter birth year");
+            var UpdateYear= int.Parse(Console.ReadLine());
+            Console.WriteLine("###################");
+            userRepository.Update(UpdateName,UpdatePhone,new DateTime(UpdateYear,1,1));
             break;
 
         case 4:
@@ -54,10 +71,12 @@ while(true)
             Console.WriteLine("choose name for delete");
             foreach (var item in userRepository.GetAll())
             {
-                Console.WriteLine(item.Name);
+                Console.WriteLine(item.ToString());
             }
+            Console.WriteLine("###################");
             var namee_ = Console.ReadLine();
             userRepository.Delete(namee_);
+            Console.ReadKey();
             break;
     }
 }
